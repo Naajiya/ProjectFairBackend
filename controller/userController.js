@@ -32,8 +32,11 @@ exports.userLogin = async (req, res) => {
     try {
         const existingUser = await users.findOne({ email, password })
         if (existingUser) {
+            console.log('token')
             const token = jwt.sign({ userId: existingUser._id }, process.env.JWT_PASSWORD)
+            console.log(token)
             res.status(200).json({ user: existingUser, token })
+           
 
         } else {
             res.status(404).json("invalid username or password")

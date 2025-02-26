@@ -8,6 +8,7 @@ exports.addProject = async (req, res) => {
     const { title, language, github, link, overview } = req.body
 
     const userId = req.userId
+    console.log(userId)
     const prjctImg = req.file.filename
 
     // res.status(200).json("add project request received")
